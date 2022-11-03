@@ -15,7 +15,7 @@
 #ifndef CHAIN_CLASS_H
 #define CHAIN_CLASS_H
 
-#include "alphabet.h"
+#include <iostream>
 #include <vector>
 
 class Chain {
