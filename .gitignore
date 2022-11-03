@@ -1,0 +1,9 @@
+#Ignorar los archivos .tgz
+*.tgz
+
+#Ignorar los archivos ejecutables
+*.out
+*.exe
+
+#Ignorar la carpeta
+.vscode
