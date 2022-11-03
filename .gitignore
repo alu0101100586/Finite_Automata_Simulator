@@ -1,5 +1,5 @@
 #Ignorar los archivos .tgz
-*.tgz
+*.tgz 
 
 #Ignorar los archivos ejecutables
 *.out
