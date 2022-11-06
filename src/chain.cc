@@ -33,6 +33,23 @@ Chain::Chain(std::string chain) {
   }
 }
 
+Chain::Chain(std::string chain, Alphabet alpha) {
+  if (chain == "&") {
+    chain_.push_back(chain);
+  } else {
+    std::string aux;
+    for (int i = 0; i < chain.size(); i++) {
+      aux += chain[i];
+      for (auto j: alpha.GetAlphabet()) {
+        if (aux == j) {
+          chain_.push_back(aux);
+          aux = "";
+        }
+      }
+    }
+  }
+}
+
 /**
  * @brief Destructor de Chain:: Chain object
  * 

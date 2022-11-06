@@ -17,6 +17,7 @@
 #include <iostream>
 #include <sstream>
 #include <set>
+#include <vector>
 
 class Alphabet {
   public:
@@ -27,6 +28,9 @@ class Alphabet {
 
     std::set<std::string> GetAlphabet() const;
     void SetAlphabet(std::set<std::string> new_alpha);
+
+    bool BelongToAlphabet(std::vector<std::string> chain);
+    bool OnAlphabet(std::string symbol);
 
     std::string ToString();
 

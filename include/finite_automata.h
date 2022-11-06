@@ -21,33 +21,34 @@
 #include <sstream>
 #include <iterator>
 #include <algorithm> 
-#include "alphabet.h"
 #include "chain.h"
 
 class FiniteAutomata {
   public:
     FiniteAutomata();
-    FiniteAutomata(std::string file);
+    FiniteAutomata(std::vector<std::string> file_fa, Alphabet alpha);
     ~FiniteAutomata();
 
     Alphabet GetAlphabet() const;
     int GetNumberStates() const;
     int GetInitState() const;    
-    std::vector<int> GetStates() const;
+    std::vector<int> GetState() const;
 
     bool Analyze(Chain chain);
 
   private:
-    void ExistInit();
-    bool FinishState(std::vector<int> actual_states);
-    void EpsilonTransition(int state, std::vector<int> &result);
+    void EClausure(int state, std::vector<int> &new_nodes);
+    bool OneInitState(std::vector<std::string> file_nfa);
+    bool OneLine(std::vector<std::string> file_nfa);
+    void ErrorFA(void);
+    std::vector<std::string> RemoveSpaces(std::string line);
 
-    Alphabet alphabet_;
+    Alphabet alpha_;
     int number_states_;
     int init_state_;
-    std::vector<int> states_;   
-    std::vector<int> acceptance_status_; 
-    std::vector<std::vector<std::pair<std::string, std::vector<int>>>> transition_;
+    std::vector<int> states_;
+    std::vector<int> accepted_states_;
+    std::vector<std::vector<std::pair<std::string, std::vector<int>>>> fa_map_;
 };
 
 #endif //FINITE_AUTOMATA_CLASS_H

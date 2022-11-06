@@ -17,11 +17,13 @@
 
 #include <iostream>
 #include <vector>
+#include "../include/alphabet.h"
 
 class Chain {
   public:
     Chain();
     Chain(std::string chain);
+    Chain(std::string chain, Alphabet alpha);
     ~Chain();
 
     std::vector<std::string> GetChain() const;

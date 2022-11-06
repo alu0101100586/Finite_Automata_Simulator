@@ -71,6 +71,43 @@ void Alphabet::SetAlphabet(std::set<std::string> new_alpha) {
 }
 
 /**
+ * @brief Comprueba si una cadena
+ * 
+ * @param chain 
+ * @return true 
+ * @return false 
+ */
+bool Alphabet::BelongToAlphabet(std::vector<std::string> chain) {
+  bool belong;
+  int counter = 0;
+  for (int i = 0; i < chain.size(); i++) {
+    counter = 0;
+    belong = false;
+    for (const std::string &j: alpha_) {
+      counter++;
+      if (j == chain[i]) {
+        belong = true;
+        break;
+      }
+      if (counter == alpha_.size()) return belong;
+    }
+  }
+  return belong;
+}
+
+/**
+ * @brief Comprueba si un symbolo pertenece al alfabeto
+ * 
+ * @param symbol 
+ * @return true 
+ * @return false 
+ */
+bool Alphabet::OnAlphabet(std::string symbol) {
+  auto search = alpha_.find(symbol);
+  return search != alpha_.end();
+}
+
+/**
  * @brief Funcion que crea un string a partir del atributo de la clase
  * 
  * @return std::string 
